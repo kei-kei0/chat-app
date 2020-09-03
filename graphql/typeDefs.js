@@ -6,7 +6,8 @@ type User {
     email: String!
     createdAt: String!
     token: String
-},
+}
+
 type Query {
     getUsers: [User]!
     login(username: String! password: String!): User!
