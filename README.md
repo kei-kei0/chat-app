@@ -14,10 +14,10 @@ mysql -u root -p -h localhost -P 3306 --protocol=tcp
 
 # migration
 ```
-# up
+# execute
 sequelize db:migrate
 
-# undo
+# rollback
 sequelize db:migrate:undo
 ```
 - document: https://sequelize.org/master/manual/migrations.html
@@ -62,7 +62,45 @@ query getUsers {
     username
   }
 }
+
+# send message
+mutation SendMessage {
+  sendMessage(to: "jane", content: "Hi, jane. Whats up!") {
+    uuid from to content createdAt
+  }
+}
+
+# send message to myself (assert error)
+mutation SendMessageMyself {
+  sendMessage(to: "john", content: "Hi, jane. Whats up!") {
+    uuid from to content createdAt
+  }
+}
+
+# get messages between john and jane
+## 1. login as john
+query Login {
+  login(username: "john", password: "123456") {
+    username
+    email
+    createdAt
+    token
+  }
+}
+
+## 2. craete header with returned token
+{
+  "Authorization": "Bearer XXXXXXXXXXX"
+}
+
+# 3. run getMessages query
+query GetMessages {
+  getMessages(from: "jane") {
+    uuid to from content createdAt
+  }
+}
 ```
+
 # start client app
 ```
 cd client
