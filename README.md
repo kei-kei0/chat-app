@@ -1,9 +1,15 @@
 # Build a Chat app with NodeJS, React and GraphQL
 
-# run server
+# start mysql
 ```
-# prerequisite: mysql(which has chat db.) is running locally.
-npm run dev
+# up
+docker-compose -f ./docker/docker-compose.yaml up -d
+
+# down
+docker-compose -f ./docker/docker-compose.yaml down --volumes
+
+# enter into process on docker (password: root)
+mysql -u root -p -h localhost -P 3306 --protocol=tcp
 ```
 
 # migration
@@ -13,6 +19,48 @@ sequelize db:migrate
 
 # undo
 sequelize db:migrate:undo
+```
+
+# run server
+```
+# prerequisite: mysql(which has chat db.) is running locally.
+npm run dev
+```
+
+# graphql query
+```
+# register user
+mutation Register {
+  register(username: "john", email: "john@email.com", password: "123456", confirmPassword: "123456") {
+    username
+    email
+    createdAt
+    token
+  }
+}
+
+# login
+query Login {
+  login(username: "john", password: "123456") {
+    username
+    email
+    createdAt
+    token
+  }
+}
+
+# getUsers
+## set header (XXXXXXXXXXXXXX: passed token when logged in)
+{
+  "Authorization": "Bearer XXXXXXXXXXXXXX"
+}
+
+## run query
+query getUsers {
+  getUsers {
+    username
+  }
+}
 ```
 
 ## status

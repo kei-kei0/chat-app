@@ -1,0 +1,12 @@
+version: '3.7' # 修正時点で最新のversionを記載しています。1.xは動きませんのでご注意を。
+services:
+    db:
+        image: mysql
+        volumes:
+            - ./initdb.d:/docker-entrypoint-initdb.d
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: test
+            MYSQL_PASSWORD: test
