@@ -77,25 +77,17 @@ module.exports = {
                 if (password.trim() === '') errors.password = 'password must not be empty'
                 if (confirmPassword.trim() === '') errors.confirmPassword = 'confirmPassword must not be empty'
                 if (password !== confirmPassword) errors.confirmPassword = 'passwords must match'
-                
-                // const userByUsername = await User.findOne({ where: { username }})
-                // const userByEmail = await User.findOne({ where: { email }})
-                // if (userByUsername) errors.username = 'Username is taken'
-                // if (userByEmail) errors.email = 'Email is taken'
 
                 if(Object.keys(errors).length > 0) {
                     throw errors;
                 }
-
-                // TODO: Hash password
+                // Hash password
                 password = await bcrypt.hash(password, 6)
-
-                // TODO: Create user
+                // Create user
                 const user = await User.create({
                     username, email, password
                 })
-                
-                // TODO: Return user
+                // Return user
                 return user
             } catch(err) {
                 console.log(err);

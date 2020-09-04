@@ -20,6 +20,7 @@ sequelize db:migrate
 # undo
 sequelize db:migrate:undo
 ```
+- document: https://sequelize.org/master/manual/migrations.html
 
 # run server
 ```
@@ -61,6 +62,11 @@ query getUsers {
     username
   }
 }
+```
+# start client app
+```
+cd client
+npm start
 ```
 
 ## status
