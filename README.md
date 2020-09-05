@@ -25,10 +25,10 @@ sequelize db:migrate:undo:all
 # insert initial data
 ```
 # running seeds
-npx sequelize-cli db:seed:all
+sequelize db:seed:all
 
 # undoing seeds
-npx sequelize-cli db:seed:undo:all
+sequelize db:seed:undo:all
 ```
 
 # run server
