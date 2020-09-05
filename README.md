@@ -18,9 +18,18 @@ mysql -u root -p -h localhost -P 3306 --protocol=tcp
 sequelize db:migrate
 
 # rollback
-sequelize db:migrate:undo
+sequelize db:migrate:undo:all
 ```
 - document: https://sequelize.org/master/manual/migrations.html
+
+# insert initial data
+```
+# running seeds
+npx sequelize-cli db:seed:all
+
+# undoing seeds
+npx sequelize-cli db:seed:undo:all
+```
 
 # run server
 ```
