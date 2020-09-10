@@ -43,6 +43,38 @@ module.exports = {
         createdAt: '2020-07-01 11:00:00',
         updatedAt: '2020-07-01 11:00:00',
       },
+      {
+        uuid: '240dd560-sdf1-4d5d-b089-12a67e8ec31c',
+        content: "That's cool! I'm joining the 'remote club' too",
+        from: 'john',
+        to: 'jane',
+        createdAt: '2020-07-01 12:00:00',
+        updatedAt: '2020-07-01 12:00:00',
+      },
+      {
+        uuid: '240l2560-sdf1-4d5d-b089-12a67e8ec31c',
+        content: "Really?how come?",
+        from: 'jane',
+        to: 'john',
+        createdAt: '2020-07-01 13:00:00',
+        updatedAt: '2020-07-01 13:00:00',
+      },
+      {
+        uuid: '240dc860-sdf1-4d5d-b089-12a67e8ec31c',
+        content: "got promoted to a consultancy role",
+        from: 'john',
+        to: 'jane',
+        createdAt: '2020-07-01 13:10:00',
+        updatedAt: '2020-07-01 13:10:00',
+      },
+      {
+        uuid: '240l2560-sdf1-4d5d-cl29-12a67e8ec31c',
+        content: "That's amazing!! well done!",
+        from: 'jane',
+        to: 'john',
+        createdAt: '2020-07-01 13:15:00',
+        updatedAt: '2020-07-01 13:15:00',
+      },
     ])
   },
 
