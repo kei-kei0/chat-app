@@ -46,7 +46,8 @@ module.exports = {
                 if (password === '') errors.password = 'password must not be empty'
 
                 if (Object.keys(errors).length > 0) {
-                    throw new UserInputError('bad input', { errors })
+                    throw new 
+                    ('bad input', { errors })
                 }
 
                 const user = await User.findOne({
